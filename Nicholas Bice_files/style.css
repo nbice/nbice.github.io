@@ -56,6 +56,12 @@ h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, 
 	text-align: inherit;
 }
 
+small {
+	font-size: 0.8em;
+	color: #666;
+	line-height: 1.2;
+}
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -300,8 +306,8 @@ ul {
 }
 
 li {
-    line-height: 1.5;
-	margin-top: 15px;
+  line-height: 1.5;
+	margin-top: 5px;
 }
 
 dd,
@@ -341,7 +347,7 @@ h5,
 h6 {
 	font-weight: 600;
 	line-height: 1.2;
-	margin: 60px 0 30px;
+	margin: 30px 0 30px;
 }
 
 h1 { font-size: 40px; }
@@ -553,7 +559,7 @@ figure {
 		left: 0;
 		bottom: 0;
 		top: 0;
-    width: 380px;
+    width: 30%;
 	z-index: 99998;
 }
 
@@ -676,7 +682,7 @@ figure {
 
 .menu-wrapper {
 	height: 100%;
-	margin-top: 60px;
+	margin-top: 10px;
 	overflow: hidden;
 	padding-bottom: 144px;
 	width: 100%;
@@ -3031,4 +3037,9 @@ input.search-field::-moz-placeholder { color: #121212; }
 		padding: 40px 7.5% 40px 0;		
 	}
 
+}
+
+#menu-item-7 img {
+	vertical-align: middle; /* Aligns the image with the text */
+	margin-right: 8px; /* Adds space between the image and text */
 }
