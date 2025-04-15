@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content - Nick Bice</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="content.html" class="active">Content</a></li>
+        </ul>
+    </nav>
+
+    <main class="section-inner">
+        <section class="section blog-post">
+            <h2>
+                Understanding ActiveRecord Callbacks: after_commit vs after_create
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <div class="post-meta">Published: March 15, 2024</div>
+                <p>When working with ActiveRecord callbacks in Rails, understanding the difference between `after_commit` and `after_create` is crucial for avoiding subtle bugs in your application.</p>
+                <p>The key distinction lies in transaction handling:</p>
+                <ul class="blog-list">
+                    <li>`after_create` runs within the same transaction as the record creation</li>
+                    <li>`after_commit` runs only after the transaction has been committed to the database</li>
+                </ul>
+                <p>This becomes particularly important when dealing with background jobs or external services. Using `after_create` might cause issues if the transaction rolls back, while `after_commit` ensures the record exists in the database before any subsequent operations.</p>
+                <div class="code-block">
+                    <pre><code>class User < ApplicationRecord
+  # Might cause issues if transaction rolls back
+  after_create :send_welcome_email
+
+  # Safer approach - ensures user exists in DB
+  after_commit :send_welcome_email, on: :create
+end</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section blog-post">
+            <h2>
+                Challenges and Tips for Working From Home
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <div class="post-meta">Published: March 1, 2024</div>
+                <p>After several years of remote work, I've encountered various challenges and developed strategies to maintain productivity and work-life balance.</p>
+                <h3>Key Challenges:</h3>
+                <ul class="blog-list">
+                    <li>Maintaining clear boundaries between work and personal life</li>
+                    <li>Staying connected with team members across time zones</li>
+                    <li>Avoiding the temptation to work longer hours</li>
+                </ul>
+                <h3>Effective Solutions:</h3>
+                <ul class="blog-list">
+                    <li>Dedicated workspace with proper ergonomic setup</li>
+                    <li>Structured daily routine with regular breaks</li>
+                    <li>Regular virtual coffee chats with colleagues</li>
+                    <li>End-of-day shutdown ritual</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section blog-post">
+            <h2>
+                When a Gem Overrides Rails Internals
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <div class="post-meta">Published: February 15, 2024</div>
+                <p>Recently encountered an interesting case where a third-party gem was overriding Rails' internal behavior, causing unexpected issues in our application.</p>
+                <p>The investigation process revealed important lessons about:</p>
+                <ul class="blog-list">
+                    <li>Understanding Rails module prepending</li>
+                    <li>Debugging gem conflicts</li>
+                    <li>Importance of reading gem source code</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code># Example of problematic gem behavior
+module GemModule
+  def self.prepended(base)
+    base.class_eval do
+      # Overriding core Rails functionality
+    end
+  end
+end</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section blog-post">
+            <h2>
+                Navigating Rails Upgrades: Lessons Learned
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <div class="post-meta">Published: February 1, 2024</div>
+                <p>Leading a major Rails upgrade project taught valuable lessons about managing large-scale updates while maintaining application stability.</p>
+                <h3>Key Steps:</h3>
+                <ul class="blog-list">
+                    <li>Comprehensive test coverage before starting</li>
+                    <li>Incremental updates through intermediate versions</li>
+                    <li>Monitoring deprecated features and APIs</li>
+                    <li>Managing gem compatibility</li>
+                </ul>
+                <p>Most challenging aspects included handling deprecated APIs, updating test suites, and maintaining backward compatibility during the transition period.</p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

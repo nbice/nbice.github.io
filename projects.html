@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Nick Bice</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Resume</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <!-- <li><a href="content.html">Content</a></li> -->
+        </ul>
+    </nav>
+
+    <main class="section-inner">
+        <section class="section about">
+            <p>While I love engineering I also think its important to have other interests outside of the work I do all day. I do not take a lot of time to work on my own personal projects. I do have a few though that I have worked on that are showcased here.</p>
+        </section>
+
+        <section class="section project">
+            <h2>
+                Budgeting Software
+                <div class="project-badges">
+                    <span class="badge badge-wip">WIP</span>
+                    <span class="badge badge-rails">Rails</span>
+                </div>
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <p>I am working on a personal finance management application built with Ruby on Rails. My goal is to create a software I can use for myself as I have not found a personal finance app that I like. This tool will help users track expenses and set budgets. I am planning to integrate with the Plaid API to connect to users bank accounts and pull in transactions.</p>
+                <ul class="project-features">
+                    <li>Expense tracking with category management</li>
+                    <li>Monthly budget setting and monitoring</li>
+                    <li>Plaid API integration</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/nbice/budgeteer" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section project">
+            <h2>
+                CLI Word Guessing Game
+                <div class="project-badges">
+                    <span class="badge badge-rails">Ruby</span>
+                </div>
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <p>A command-line implementation of a word guessing game built in Ruby. Modeled after the popular game Wordle, players attempt to guess a hidden word with feedback on correct letter placement. The game uses a list of 5 letter words from the scrabble dictionary.</p>
+                <!-- I have re-written the game in Javascript so you can play it right here on this page. I have removed some of the words since many of them are very uncommon. -->
+                <h3>Features</h3>
+                <ul class="project-features">
+                    <li>Command line interface</li>
+                    <li>Color-coded feedback for correct and misplaced letters</li>
+                    <li>Ruby and Javascript implementations</li>
+                </ul>
+                <!-- <h3>Play the game</h3>
+                <p>Players have 6 attempts to guess the 5 letter word. Invalid words do not count as a guess.</p>
+                <div class="word-game">
+                    <input type="text" id="guess" placeholder="Enter your guess (5 letter word)" maxlength="5">
+                    <div id="message"></div>
+                    <div id="results"></div>
+                </div> -->
+                <div class="project-links">
+                    <a href="https://github.com/nbice/word-guessing-game" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section project">
+            <h2>
+                This Website
+                <div class="project-badges">
+                    <span class="badge badge-html">HTML</span>
+                    <span class="badge badge-ai">AI</span>
+                </div>
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <p>This may seem like a small project, however building a personal website is not a zero amount of work. I spent more time than I care to admit trying to find a good wordpress template and trying to modify it to suite my style. Ultimately I decided to host this site with GitHub Pages and use basic html and css to build it. I can easily clone the repo and make edits from my local code editor and I can keep a record of how the site has evolved over time.</p>
+                <p>While I am a full stack developer, HTML and CSS are not my strong suits. I did use cursor AI to help me quickly setup the basic page structure and styles of the site. I then adjusted them as needed but I think this is a great use case for AI today. Why spend more time than needed building a simple site when I can use AI to help get setup so I can focus my time and energy on more important things?</p>
+                <div class="project-links">
+                    <a href="https://github.com/nbice/nbice.github.io" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
