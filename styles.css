@@ -575,6 +575,31 @@ body {
     color: #166534;
 }
 
+.badge-react {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.badge-redux {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.badge-professional {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.badge-css {
+    background-color: #f5f3ff;
+    color: #5b21b6;
+}
+
+.badge-datadog {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+}
+
 /* Adjust the h2 to accommodate badges */
 .section h2 {
     display: flex;

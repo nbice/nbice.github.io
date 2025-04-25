@@ -18,16 +18,16 @@
     </nav>
 
     <main class="section-inner">
-        <section class="section about">
+        <!-- <section class="section about">
             <p>While I love engineering I also think its important to have other interests outside of the work I do all day. I do not take a lot of time to work on my own personal projects. I do have a few though that I have worked on that are showcased here.</p>
-        </section>
+        </section> -->
 
         <section class="section project">
             <h2>
-                Budgeting Software
+                App Observability
                 <div class="project-badges">
-                    <span class="badge badge-wip">WIP</span>
-                    <span class="badge badge-rails">Rails</span>
+                    <span class="badge badge-datadog">Datadog</span>
+                    <span class="badge badge-professional">Professional</span>
                 </div>
                 <button class="section-toggle" aria-label="Toggle section">
                     <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
@@ -39,19 +39,80 @@
                 </button>
             </h2>
             <div class="section-content">
-                <p>I am working on a personal finance management application built with Ruby on Rails. My goal is to create a software I can use for myself as I have not found a personal finance app that I like. This tool will help users track expenses and set budgets. I am planning to integrate with the Plaid API to connect to users bank accounts and pull in transactions.</p>
-                <ul class="project-features">
-                    <li>Expense tracking with category management</li>
-                    <li>Monthly budget setting and monitoring</li>
-                    <li>Plaid API integration</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/nbice/budgeteer" target="_blank">View on GitHub</a>
-                </div>
+                <p>
+                    I learned the importance of observability the hard way when I was tasked with debugging a major issue in an application that was not observable.
+                    The app was essentially not working at scale but there were no logs, metrics, traces, or errors to
+                    help me understand the problem. This was also a problem because the issue was not easily reproducible.
+                    This led me to learn more about Datadog and how to use it to make software observable.
+                </p>
+                <p>
+                    The first thing to be done was to upgrade Datadog within the application. Datadog was technically
+                    running on the app but no useful information was logged and any logs that did show up were not tagged
+                    with any information. I upgraded Datadog to the latest version on the application and even got it
+                    running in my local environment in docker.
+                </p>
+                <p>
+                    Next I normalized the logging format in the application to make the logs consistent and informative.
+                    Including standard key value pairs such as customer IDs, class names, and error messages allowed me to
+                    see how the app was behaving at every step in the request cycle. Adding tags to all of the traces also 
+                    allowed me to quickly identify where an issue occurred.
+                </p>
+                <p>
+                    Metrics are important here because collecting all of the logs that come through the app is expensive.
+                    By utilizing metrics we can see the number of requests and errors at any point in the request cycle
+                    without indexing all of the logs.
+                </p>
+                <p>
+                    The last thing needed to make the app observable was to aggregate the logs and traces in a Datadog
+                    dashboard. I used a timeboard to visualize the sampled logs at every step in the request cycle and displayed
+                    alongside them the error rates and metrics created from those logs. This has proven to be very valuable
+                    in debugging and monitoring issues reported in the app. It has significantly reduced the time it takes
+                    to investigate and fix issues.
+                </p>
             </div>
         </section>
 
         <section class="section project">
+            <h2>
+                Drag and Drop Content Editor
+                <div class="project-badges">
+                    <span class="badge badge-react">React</span>
+                    <span class="badge badge-react">Redux</span>
+                    <span class="badge badge-professional">Professional</span>
+                </div>
+                <button class="section-toggle" aria-label="Toggle section">
+                    <svg class="toggle-icon x-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="toggle-icon plus-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </h2>
+            <div class="section-content">
+                <p>
+                    I led a project to create a drag and drop content editor inside of a single page React app. Users could use 
+                    the app to select pre-built or custom themes to create content. Inside the editor users could drag and drop
+                    predefined blocks of various types. Block types include components such as plain text, two column, image, and button.
+                    The purpose is to allow customers to create beautiful content without writing HTML.
+                </p>
+                <p>
+                    The app is written in React and uses Redux for state management. The drag and drop components were written using
+                    a library called dnd-kit. One difficulty we ran into in this project was rendering the drag and drop components
+                    on top of a content preview panel. This is where dnd-kit was helpful. It allowed us to render an overlay on top
+                    of an iframe. The iframe rendered the preview of the content while the overlay calculated the position of
+                    the components the user would drag into the content.
+                </p>
+                <p>
+                    While this was a front-end heavy project, the app was built on top of an existing Ruby on Rails app.
+                    There was still plenty of backend work to coordinate with the actions taken on the front-end. I also optimized
+                    the amount of data that was loaded at any time to make page loads fast and only return the data necessary
+                    for the current view. The load time on some views were reduced from 10 seconds to under 1 second.
+                </p>
+            </div>
+        </section>
+
+        <!-- <section class="section project">
             <h2>
                 CLI Word Guessing Game
                 <div class="project-badges">
@@ -68,31 +129,18 @@
             </h2>
             <div class="section-content">
                 <p>A command-line implementation of a word guessing game built in Ruby. Modeled after the popular game Wordle, players attempt to guess a hidden word with feedback on correct letter placement. The game uses a list of 5 letter words from the scrabble dictionary.</p>
-                <!-- I have re-written the game in Javascript so you can play it right here on this page. I have removed some of the words since many of them are very uncommon. -->
-                <h3>Features</h3>
-                <ul class="project-features">
-                    <li>Command line interface</li>
-                    <li>Color-coded feedback for correct and misplaced letters</li>
-                    <li>Ruby and Javascript implementations</li>
-                </ul>
-                <!-- <h3>Play the game</h3>
-                <p>Players have 6 attempts to guess the 5 letter word. Invalid words do not count as a guess.</p>
-                <div class="word-game">
-                    <input type="text" id="guess" placeholder="Enter your guess (5 letter word)" maxlength="5">
-                    <div id="message"></div>
-                    <div id="results"></div>
-                </div> -->
                 <div class="project-links">
                     <a href="https://github.com/nbice/word-guessing-game" target="_blank">View on GitHub</a>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="section project">
             <h2>
                 This Website
                 <div class="project-badges">
                     <span class="badge badge-html">HTML</span>
+                    <span class="badge badge-css">CSS</span>
                     <span class="badge badge-ai">AI</span>
                 </div>
                 <button class="section-toggle" aria-label="Toggle section">
@@ -105,8 +153,18 @@
                 </button>
             </h2>
             <div class="section-content">
-                <p>This may seem like a small project, however building a personal website is not a zero amount of work. I spent more time than I care to admit trying to find a good wordpress template and trying to modify it to suite my style. Ultimately I decided to host this site with GitHub Pages and use basic html and css to build it. I can easily clone the repo and make edits from my local code editor and I can keep a record of how the site has evolved over time.</p>
-                <p>While I am a full stack developer, HTML and CSS are not my strong suits. I did use cursor AI to help me quickly setup the basic page structure and styles of the site. I then adjusted them as needed but I think this is a great use case for AI today. Why spend more time than needed building a simple site when I can use AI to help get setup so I can focus my time and energy on more important things?</p>
+                <p>
+                    This may seem like a small project, however building a personal website is not a zero amount of work.
+                    I spent more time than I care to admit trying to find a good wordpress template and trying to modify it to suit my style.
+                    Ultimately I decided to host this site with GitHub Pages and use basic html and css to build it. I can 
+                    easily clone the repo and make edits from my local code editor and I can keep a record of how the site has evolved over time.
+                </p>
+                <p>
+                    While I am a full stack developer, HTML and CSS are not my strong suits. I did use cursor AI to help me 
+                    quickly setup the basic page structure and styles of the site. I then adjusted them as needed but I think 
+                    this is a great use case for AI today. Why spend more time than needed building a simple site when I 
+                    can use AI to help get setup so I can focus my time and energy on more important things?
+                </p>
                 <div class="project-links">
                     <a href="https://github.com/nbice/nbice.github.io" target="_blank">View on GitHub</a>
                 </div>
